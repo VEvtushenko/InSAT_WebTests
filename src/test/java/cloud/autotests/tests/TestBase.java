@@ -4,6 +4,7 @@ import cloud.autotests.config.Project;
 import cloud.autotests.helpers.AllureAttachments;
 import cloud.autotests.helpers.DriverSettings;
 import cloud.autotests.helpers.DriverUtils;
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.junit5.AllureJunit5;
@@ -16,9 +17,20 @@ import org.junit.jupiter.api.extension.ExtendWith;
 
 @ExtendWith({AllureJunit5.class})
 public class TestBase {
+
+    String firstName = "Владимир",
+            lastName = "Евтушенко",
+            secondName = "Алексеевич",
+            testEmail = "v.evtushenko@digrp.ru",
+            testPhone = "+79250092322",
+            testLogin = Project.config.userName(),
+            testPassword = Project.config.userPassword();
+
+
     @BeforeAll
     static void beforeAll() {
         DriverSettings.configure();
+        Configuration.holdBrowserOpen = true;
     }
 
     @BeforeEach
@@ -32,7 +44,6 @@ public class TestBase {
 
         AllureAttachments.addScreenshotAs("Last screenshot");
         AllureAttachments.addPageSource();
-//        AllureAttachments.attachNetwork(); // todo
         AllureAttachments.addBrowserConsoleLogs();
 
         Selenide.closeWebDriver();
