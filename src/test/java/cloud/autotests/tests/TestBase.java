@@ -18,11 +18,11 @@ import org.junit.jupiter.api.extension.ExtendWith;
 @ExtendWith({AllureJunit5.class})
 public class TestBase {
 
-    String firstName = "Владимир",
-            lastName = "Евтушенко",
-            secondName = "Алексеевич",
-            testEmail = "v.evtushenko@digrp.ru",
-            testPhone = "+79250092322",
+    String firstName = Project.config.firstName(),
+            lastName = Project.config.lastName(),
+            secondName = Project.config.secondName(),
+            testEmail = Project.config.testEmail(),
+            testPhone = Project.config.testPhone(),
             testLogin = Project.config.userName(),
             testPassword = Project.config.userPassword();
 

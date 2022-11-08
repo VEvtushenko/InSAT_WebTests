@@ -19,6 +19,11 @@ public interface ProjectConfig extends Config {
     String webUrl();
     String userPassword();
     String userName();
+    String firstName();
+    String lastName();
+    String secondName();
+    String testEmail();
+    String testPhone();
     String browserMobileView();
     String remoteDriverUrl();
     String videoStorage();
