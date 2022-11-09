@@ -1,7 +1,5 @@
 package cloud.autotests.tests;
 
-import cloud.autotests.helpers.DriverUtils;
-import com.codeborne.selenide.Condition;
 import io.qameta.allure.Description;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,11 +12,11 @@ import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
-public class GeneratedTests extends TestBase {
+public class InSatTests extends TestBase {
     @Test
-    @Description("Тесты сайта компании ИнСАТ")
-    @DisplayName("Тест ИнСАТ")
-    void generatedTest() {
+    @Description("Тест регистрации сайта компании ИнСАТ")
+    @DisplayName("Тест регистрации")
+    void registrationTest() {
         step("Открыть https://insat.ru/", () -> open("/"));
 
         step("Нажать \"Личный кабинет\"", () -> $(".kabinet").click());
@@ -58,4 +56,28 @@ public class GeneratedTests extends TestBase {
         });
 
     }
+
+    @Test
+    @Description("Тесты авторизации сайта компании ИнСАТ")
+    @DisplayName("Тест авторизации")
+    void authorisationTest() {
+        step("Открыть https://insat.ru/", () -> open("/"));
+
+        step("Нажать \"Личный кабинет\"", () -> $(".kabinet").click());
+
+        step("Ввести данные для авторизации", () -> {
+            step("Ввести логин", () -> $("[name='USER_LOGIN']").setValue(testLogin));
+            step("Ввести фамилию", () -> $("[name='USER_PASSWORD']").setValue(testPassword));
+        });
+
+        step("Нажать \"Войти\"", () -> $("[name='Login']").click());
+
+        step("Проверка успешной авторизации", () -> {
+            step("Проверить вход в личный кабинет", () -> $(".work-box")
+                    .shouldHave(text("Личный кабинет")));
+            step("Проверить ФИО", () -> $(".cabinet-col-2")
+                    .shouldHave(text(String.format(" %s %s", firstName, lastName))));
+        });
+    }
+
 }
