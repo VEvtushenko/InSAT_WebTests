@@ -4,6 +4,8 @@ import io.qameta.allure.Description;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
@@ -79,5 +81,23 @@ public class InSatTests extends TestBase {
                     .shouldHave(text(String.format(" %s %s", firstName, lastName))));
         });
     }
+
+    @Test
+    @Description("Тесты поиска на сайте компании ИнСАТ")
+    @DisplayName("Тест поиска")
+    void searchTest() {
+        step("Открыть https://insat.ru/", () -> open("/"));
+
+        step("Ввести в строку поиска текст", () -> $("[placeholder='Поиск']").setValue(searchText));
+
+        step("Проверить работу автодополнения", () -> $(".ui-autocomplete").shouldHave(text(searchText), Duration.ofSeconds(5)));
+
+        step("Нажать \"Найти\"", () -> $(".search-form").$("[type='submit']").click());
+
+        step("Проверить результаты поиска", () -> $(".item-content").shouldHave(text(searchText), Duration.ofSeconds(5)));
+
+    }
+
+
 
 }

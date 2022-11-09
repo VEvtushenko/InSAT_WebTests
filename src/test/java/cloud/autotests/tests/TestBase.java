@@ -24,7 +24,8 @@ public class TestBase {
             testEmail = Project.config.testEmail(),
             testPhone = Project.config.testPhone(),
             testLogin = Project.config.userName(),
-            testPassword = Project.config.userPassword();
+            testPassword = Project.config.userPassword(),
+            searchText = "Обучение";
 
 
     @BeforeAll
