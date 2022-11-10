@@ -2,6 +2,7 @@ package cloud.autotests.tests;
 
 import io.qameta.allure.Description;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
@@ -18,6 +19,7 @@ public class InSatTests extends TestBase {
     @Test
     @Description("Тест регистрации сайта компании ИнСАТ")
     @DisplayName("Тест регистрации")
+    @Tag("registrationTest")
     void registrationTest() {
         step("Открыть https://insat.ru/", () -> open("/"));
 
@@ -62,6 +64,7 @@ public class InSatTests extends TestBase {
     @Test
     @Description("Тесты авторизации сайта компании ИнСАТ")
     @DisplayName("Тест авторизации")
+    @Tag("authorisationTest")
     void authorisationTest() {
         step("Открыть https://insat.ru/", () -> open("/"));
 
@@ -85,6 +88,7 @@ public class InSatTests extends TestBase {
     @Test
     @Description("Тесты поиска на сайте компании ИнСАТ")
     @DisplayName("Тест поиска")
+    @Tag("searchTest")
     void searchTest() {
         step("Открыть https://insat.ru/", () -> open("/"));
 
@@ -97,7 +101,5 @@ public class InSatTests extends TestBase {
         step("Проверить результаты поиска", () -> $(".item-content").shouldHave(text(searchText), Duration.ofSeconds(5)));
 
     }
-
-
 
 }
