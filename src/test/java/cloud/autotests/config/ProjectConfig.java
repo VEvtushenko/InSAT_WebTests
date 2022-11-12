@@ -19,9 +19,14 @@ public interface ProjectConfig extends Config {
     String webUrl();
     String userPassword();
     String userName();
+    @DefaultValue("Владимир")
     String firstName();
+    @DefaultValue("Евтушенко")
     String lastName();
+    @DefaultValue("Алексеевич")
     String secondName();
+    @DefaultValue("Обучение")
+    String searchText();
     String testEmail();
     String testPhone();
     String browserMobileView();
