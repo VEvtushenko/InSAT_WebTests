@@ -4,6 +4,7 @@ import cloud.autotests.config.Project;
 import com.github.javafaker.Faker;
 
 public class User {
+
     private final String firstName;
     private final String lastName;
     private final String secondName;
@@ -42,7 +43,7 @@ public class User {
 
     public User() {
 
-        Faker faker =new Faker();
+        Faker faker = new Faker();
 
         if (!Project.config.firstName().equals("")) {
             firstName = Project.config.firstName();

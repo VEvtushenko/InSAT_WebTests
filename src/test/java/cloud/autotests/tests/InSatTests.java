@@ -2,14 +2,12 @@ package cloud.autotests.tests;
 
 import cloud.autotests.config.Project;
 import cloud.autotests.helpers.AllureAttachments;
-import com.github.javafaker.Faker;
 import io.qameta.allure.Description;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
-import java.util.Random;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -45,9 +43,9 @@ public class InSatTests extends TestBase {
 
         step("Выбрать опции", () -> {
             step("Подтвердить доступ к демо-версиям", () -> $(withText("Хочу получить доступ к демо-версиям программных продуктов:")).click());
-//            step("Подтвердить доступ к новостным рассылкам", () -> {
-//                $(withText("Подписаться на новости Инсат")).click();
-//            });
+            step("Подтвердить доступ к новостным рассылкам", () -> {
+                $(withText("Подписаться на новости Инсат")).click();
+            });
             step("Согласие на обработку персональных данных", () -> $("[name='agreement']").sibling(0).click());
         });
 

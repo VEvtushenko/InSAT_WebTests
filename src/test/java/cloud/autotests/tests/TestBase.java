@@ -25,7 +25,6 @@ public class TestBase {
     @BeforeAll
     static void beforeAll() {
         DriverSettings.configure();
-        Configuration.holdBrowserOpen = true;
     }
 
     @BeforeEach

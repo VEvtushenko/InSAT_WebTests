@@ -16,17 +16,21 @@ public interface ProjectConfig extends Config {
     String browserVersion();
     @DefaultValue("1920x1080")
     String browserSize();
+    @DefaultValue("Владимир")
+    String firstName();
+
+    @DefaultValue("Евтушенко")
+    String lastName();
+
+    @DefaultValue("Алексеевич")
+    String secondName();
+
+    @DefaultValue("Обучение")
+    String searchText();
+
     String webUrl();
     String userPassword();
     String userName();
-    @DefaultValue("Владимир")
-    String firstName();
-    @DefaultValue("Евтушенко")
-    String lastName();
-    @DefaultValue("Алексеевич")
-    String secondName();
-    @DefaultValue("Обучение")
-    String searchText();
     String testEmail();
     String testPhone();
     String browserMobileView();
